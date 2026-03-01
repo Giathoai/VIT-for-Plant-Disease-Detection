@@ -49,10 +49,6 @@ vit_pytorch_project/
 │   ├── __init__.py
 │   ├── engine.py                  # Train/Eval loop
 │   └── helpers.py                 # Random seed setup
-├── tests/                         # Data pipeline unit tests
-│   ├── test_pipeline.py
-│   ├── test_transformer_block.py
-│   └── test_end_to_end.py
 ├── weights/                       # (Auto-created) Saved model checkpoints (.pth)
 ├── train.py                       # Main training script
 ├── eval.py                        # Evaluation script & Confusion Matrix plotting
@@ -94,17 +90,7 @@ data/
     ...
 ```
 
-### 3. Run Unit Tests
-
-Before training, run the end-to-end integration test to verify the full data pipeline — from folder to model output — works correctly:
-
-```bash
-python tests/test_end_to_end.py
-```
-
-> ✅ If the output shows `PASSED` and the tensor shape matches your number of classes, you're ready to go!
-
-### 4. Train the Model
+### 3. Train the Model
 
 The model uses the **AdamW optimizer** with a learning rate of `0.0001`. Start training with:
 
@@ -114,7 +100,7 @@ python train.py
 
 The best-performing model checkpoint will be saved automatically to `weights/optimized_vit_best.pth`.
 
-### 5. Evaluate the Model
+### 4. Evaluate the Model
 
 To assess model performance on the test set and generate a detailed report (Accuracy, Precision, Recall, F1-Score) along with a Confusion Matrix heatmap, run:
 
